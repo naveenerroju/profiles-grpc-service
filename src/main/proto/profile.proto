@@ -1,0 +1,28 @@
+// File: ProfileService.proto
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.github.naveenerroju.profile_service";
+option java_outer_classname = "ProfileServiceProto";
+
+service ProfileService {
+  rpc AddProfile(Profile) returns (ProfileResponse);
+  rpc UpdateProfile(Profile) returns (ProfileResponse);
+  rpc GetProfile(ProfileId) returns (Profile);
+  rpc DeleteProfile(ProfileId) returns (ProfileResponse);
+}
+
+message Profile {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+}
+
+message ProfileId {
+  string id = 1;
+}
+
+message ProfileResponse {
+  string message = 1;
+}
